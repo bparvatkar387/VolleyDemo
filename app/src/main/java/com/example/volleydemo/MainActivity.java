@@ -18,6 +18,8 @@ import com.android.volley.toolbox.Volley;
 
 import org.w3c.dom.Text;
 
+import myutils.VolleyHelper;
+
 public class MainActivity extends AppCompatActivity {
     TextView textView;
     Button button;
@@ -31,7 +33,6 @@ IMPORTANT: To resolve errors regarding ClearText HTTP traffic request
             add android:networkSecurityConfig="@xml/network_security_config" in manifest file
 
 */
-    String URL = "http://172.16.4.186:80/volley/greetings.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +76,7 @@ IMPORTANT: To resolve errors regarding ClearText HTTP traffic request
 
 */
                 final RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, VolleyHelper.URL,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
